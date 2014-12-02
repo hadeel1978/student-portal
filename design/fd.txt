@@ -1,0 +1,19 @@
+
+Departments.abbr -> Departments.name
+
+Programmes.abbr -> Programmes.name
+
+Courses.code -> Courses.name
+Courses.code -> Courses.credits
+Courses.code -> Departments.abbr, Departments.name
+Courses.code -> LimitedCourses.capacity
+
+Students.id -> Students.name
+Students.id -> Programmes.abbr, Programmes.name
+Students.id -> Branches.name
+
+Students.id, Courses.code -> StudentGrades.grade
+
+Courses.code, Students.id -> CourseQueues.counter
+
+Courses.code, CourseQueues.counter -> Students.id

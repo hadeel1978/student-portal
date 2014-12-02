@@ -1,0 +1,55 @@
+
+Departments(_abbr, name)
+
+Programmes(_abbr, name)
+
+Branches(_programme, _name)
+    programme -> Programmes.abbr
+
+Courses(_code, department, name, credits)
+    department -> Departments.abbr
+
+LimitedCourses(_course, capacity)
+    course -> Courses.code
+
+Classifications(_type)
+
+Students(_id, name, programme, branch)
+    (programme, branch) -> branch.(programme, name)
+
+DepartmentProgrammes(_department, _programme)
+    department -> Departments.abbr
+    programme -> Programmes.abbr
+
+ProgrammeRequirements(_programme, _course)
+    programme -> Programmes.abbr
+    course -> Courses.code
+
+BranchRequirements(_programme, _branch, _course)
+    (programme, branch) -> branch.(programme, name)
+    course -> Courses.code
+
+BranchRecommendations(_programme, _branch, _course)
+    (programme, branch) -> branch.(programme, name)
+    course -> Courses.code
+
+CoursePrerequisites(_course, _prerequisite)
+    course -> Courses.code
+    prerequisite -> Courses.code
+
+CourseClassifications(_course, _classification)
+    course -> Courses.code
+    classification -> Classifications.type
+
+CourseQueues(_course, _student, counter)
+    course -> LimitedCourses.code
+    student -> Students.id
+    (course, counter) unique
+
+StudentCourses(_student, _course)
+    student -> Students.id
+    course -> Courses.code
+
+StudentGrades(_student, _course, grade)
+    student -> Students.id
+    course -> Courses.code
