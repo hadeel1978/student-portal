@@ -38,7 +38,6 @@ INSERT ALL
   INTO Course_Classifications VALUES('TIN092', 'seminar')
   
   INTO Course_Prerequisites VALUES('TMV170', 'TMV216')
-  INTO Course_Prerequisites VALUES('DAT076', 'TDA357')
   INTO Course_Prerequisites VALUES('TIN172', 'TIN092')
   
   INTO Programme_Requirements VALUES('CE', 'TMV216')
@@ -108,7 +107,7 @@ INSERT ALL
   INTO Students_Courses VALUES('archod', 'TMV170')
   INTO Students_Courses VALUES('archod', 'TDA357')
   INTO Students_Courses VALUES('chayed', 'TMV170')
---INTO Students_Courses VALUES('chayed', 'TDA357') in queue!
+  INTO Students_Courses VALUES('chayed', 'TDA357') --Makes course overfull
   /* IT - Year 1 */
   INTO Students_Courses VALUES('verlot', 'TMV216')
   INTO Students_Courses VALUES('verlot', 'TDA357')
@@ -197,4 +196,3 @@ SELECT * FROM DUAL;
 
 INSERT INTO Course_Queues VALUES('TIN092', 'reghil', Queue_Counter.nextval);
 INSERT INTO Course_Queues VALUES('TIN092', 'shakug', Queue_Counter.nextval);
-INSERT INTO Course_Queues VALUES('TDA357', 'chayed', Queue_Counter.nextval);

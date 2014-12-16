@@ -1,7 +1,12 @@
 
 CREATE OR REPLACE VIEW Students_Following AS
-  SELECT id AS student, programme, branch
-  FROM Students;
+  SELECT Students.id AS student,
+         Students.name AS student_name,
+         Programmes.abbr AS programme,
+         Programmes.name AS programme_name,
+         branch
+  FROM Students
+  JOIN Programmes ON abbr = programme;
 
 CREATE OR REPLACE VIEW Finished_Courses AS
   SELECT *
